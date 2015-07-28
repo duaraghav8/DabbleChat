@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script language = "javascript">
+			var requestObject = false;
+
+			if (window.XMLHttpRequest) {
+				requestObject = new XMLHttpRequest ();
+			}
+			else if (window.ActiveXObject) {
+				requestObject = new ActiveXObject ("Microsoft.XMLHTTP");
+			}
+
+			function getData (dataSource, output, input) {
+				var spot = document.getElementById (output);
+
+				if (input == null) {
+					requestObject.open ("GET", dataSource, true);
+				}
+				else {
+					var userMsg = document.getElementById (input).value;
+					requestObject.open ("GET", dataSource + "?user_msg=" + userMsg, true);
+					document.getElementById (input).value = "";
+				}
+
+				requestObject.onreadystatechange = function () {
+					if (requestObject.status == 200 && requestObject.readyState == 4) {
+						spot.innerHTML = requestObject.responseText;
+					}
+				}
+
+				requestObject.send (null);
+			}
+		</script>
+	</head>
+
+	<body onload="JavaScript:setInterval(getData, 1000, 'chat_handler.php', 'update', null);">
+		Your Message: <input type = "text" name = "user_message" id = "user_message" onkeydown = "
+			if (event.keyCode == 13) {
+				document.getElementById ('send_message').click ();
+			}
+		" />
+		<input type = "hidden" id = "send_message" onclick = "getData ('chat_handler.php', 'update', 'user_message');" /> <br />
+
+		<b> --------------------------------------------------------------------</b> <br />
+		<div id = "update"></div>
+	</body>
+
+</html>
