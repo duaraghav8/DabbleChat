@@ -9,4 +9,4 @@ Alternatively, you could manually remove all the content with the MySql Command:
 
 **chat_handler.php** Edit the data in this file (ip, user, password, database name) so the php script can connect to the database properly.
 
-**Create_db.sql** Run this script to create your SQL Script
+**Create_db.sql** Run this script to create your Database
