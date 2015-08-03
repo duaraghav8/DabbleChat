@@ -1,6 +1,5 @@
 # DabbleChat
-An anonymous live chat system developed in JavaScript, PHP, MySql and a tiny bit of Ajax. Though it was intended as a fun project, this simple-looking chat app went viral on my College Network (it only enjoyed the fame for 3 days
-though).
+An anonymous real time chat system I developed for use at college after I realized that the usual chat based apps weren't quite effective in the area due to bad internet connectivity over phone. Though it was intended as a fun project, this simple-looking chat app went viral on my College Network (it only enjoyed the fame for 3 days though).
 
 **Dabble.html** : Main Page
 
